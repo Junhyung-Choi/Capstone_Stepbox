@@ -1,4 +1,4 @@
-from src.main.script.domain import sensor
+from domain import sensor
 
 class SwitchSensor(sensor.Sensor):
     def __init__(self, index, pinnum):

@@ -17,3 +17,8 @@ class Sensor(metaclass=ABCMeta):
     @abstractmethod
     def setvalue(self,value):
         self.value = value;
+
+    @abstractmethod
+    def getValueFromDevice(self):
+        # GPIO.input(self.pinnum)
+        return self.value

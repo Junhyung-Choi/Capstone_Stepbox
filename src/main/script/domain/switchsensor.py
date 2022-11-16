@@ -13,4 +13,9 @@ class SwitchSensor(sensor.Sensor):
     def setvalue(self,value):
         self.value = value
 
+    def getValueFromDevice(self):
+        return self.value
+
+
+
 

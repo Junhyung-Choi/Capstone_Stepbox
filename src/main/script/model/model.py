@@ -1,12 +1,19 @@
-class Model:
-    def getObject():
+from abc import ABCMeta, abstractmethod
+
+
+class Model(metaclass=ABCMeta):
+    @abstractmethod
+    def getObject(self):
         pass
 
-    def getObjectById():
+    @abstractmethod
+    def getObjectById(self):
         pass
 
+    @abstractmethod
     def saveObject(obj):
         pass
 
+    @abstractmethod
     def delObjectById(id):
         pass

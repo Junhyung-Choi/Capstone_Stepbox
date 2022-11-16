@@ -1,15 +1,15 @@
-import model
+from src.main.script.model import model
+
 
 class PoseModel(model.Model):
+    def getObject(self):
+        pass
 
-    def getObject():
-        super().getObject()
-
-    def getObjectById():
-        super().getObjectById()
+    def getObjectById(self):
+        pass
 
     def saveObject(obj):
-        super().saveObject()
+        pass
 
     def delObjectById(id):
-        super().delObjectById()
+        pass

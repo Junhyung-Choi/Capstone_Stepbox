@@ -1,4 +1,4 @@
-from domain import sensor
+from . import sensor
 
 class SwitchSensor(sensor.Sensor):
     def __init__(self, index, pinnum):
@@ -12,5 +12,10 @@ class SwitchSensor(sensor.Sensor):
 
     def setvalue(self,value):
         self.value = value
+
+    def getValueFromDevice(self):
+        return self.value
+
+
 
 

@@ -1,10 +1,10 @@
 import time
 
 # Uncomment on Raspberry PI
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
-from src.main.script.controller.abstractcontroller import Controller
-from src.main.script.domain.switchsensor import SwitchSensor
+from .abstractcontroller import Controller
+from domain.switchsensor import SwitchSensor
 
 PIN_INDEX = [2,4,15,17,22,24,10,11]
 class SystemController(Controller):

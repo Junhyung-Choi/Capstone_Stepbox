@@ -7,6 +7,8 @@ import RPi.GPIO as GPIO
 from .abstractcontroller import Controller
 from domain.switchsensor import SwitchSensor
 from domain.sensor import Sensor
+from model.pose import Pose, PoseResult
+from model.clickpose import ClickPose
 
 PIN_INDEX: Tuple[int] = (2, 4, 15, 17, 22, 24, 10, 11)
 OUT_PIN_INDEX: Tuple[int] = (3, 14, 18, 27, 23, 25, 9, 8)
@@ -21,11 +23,11 @@ class SystemController(Controller):
         play: 프로그램 실행 내내 반복해서 호출되는 함수
     """
     sensors: List[Sensor] = []
+    pose: Pose = None
 
     def init(self):
-        print("Init Program")
+        print("Init Program (기존 운동 데이터 확인 / 운동 모드 선택 등등..)")
 
-        
         GPIO.setmode(GPIO.BCM)
         
         # 테스트를 위해 1로 조정
@@ -37,17 +39,15 @@ class SystemController(Controller):
         for i in range(1):
             self.sensors.append(SwitchSensor(i, PIN_INDEX[i]))
 
+        # 테스트를 위해 pose를 ClickPose로 조정
+        self.pose = ClickPose()
+
     def play(self):
+        self.init()
+        print("Program running...")
         while True:
-            if not self.isInited:
-                self.init()
-                self.isInited = True
 
-            for sensor in self.sensors:
-                sensor.getValueFromDevice()
-
-            print("Program running...")
-
+            self.pose.evalPosef(self.sensors)
             # for sensor in self.sensors:
             #     print(sensor)
             # print("======================")

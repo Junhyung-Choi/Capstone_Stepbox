@@ -1,15 +1,16 @@
 from typing import List
 
-import src.main.script.model import pose
-from src.main.script.domain.sensor import Sensor
-from src.main.script.model.pose import PoseResult
+from . import pose
+from domain.sensor import Sensor
 
 
 class ClickPose(pose.Pose):
-    def evalPosef(self, sensors: List[Sensor]) -> float:
 
+    sensor_list = [0]
+    def evalPosef(self, sensors: List[Sensor]) -> float:
+        print("Click Pose evalutate Pose / return float")
         pass
 
-    def evalPoseMsg(self, sensors: List[Sensor]) -> PoseResult:
-
+    def evalPoseMsg(self, sensors: List[Sensor]) -> pose.PoseResult:
+        print("Click Pose evalutate Pose / return float with messages")
         pass

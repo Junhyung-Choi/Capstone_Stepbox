@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from typing import List, Tuple
-from src.main.script.domain.sensor import Sensor
+from domain.sensor import Sensor
 
 class PoseResult:
     def __init__(self, msg, value):
@@ -8,8 +8,17 @@ class PoseResult:
         self.value = value
 
 class Pose(metaclass=ABCMeta):
+    """
+    pose쪽으로 sensor들을 일괄적으로 넘기고
+    각 포즈가 필요한 센서의 값만 attribute를 통해 입력을 확인하고
+    이걸 평가하는 과정이 필요함.
+
+    다만 입력이 연속적으로 들어오고 이를 처리해야 하기 때문에 어떻게 할지 고민중 
+    """
     set:int = 0
     time:int = 0
+    
+    sensor_list = []
 
     @abstractmethod
     def evalPosef(self,sensors:List[Sensor]) -> float:

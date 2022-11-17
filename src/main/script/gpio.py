@@ -19,7 +19,7 @@ todo:
 """
 
 from enum import Enum
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 

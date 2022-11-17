@@ -1,4 +1,5 @@
 from . import sensor
+import RPi.GPIO as GPIO
 
 class SwitchSensor(sensor.Sensor):
     def __init__(self, index, pinnum):
@@ -14,6 +15,8 @@ class SwitchSensor(sensor.Sensor):
         self.value = value
 
     def getValueFromDevice(self):
+        self.value = GPIO.input(self.pinnum)
+        print("Value: " + str(self.value) + " Pin number: " + str(self.pinnum))
         return self.value
 
 

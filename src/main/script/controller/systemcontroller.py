@@ -25,14 +25,16 @@ class SystemController(Controller):
     def init(self):
         print("Init Program")
 
-        """
+        
         GPIO.setmode(GPIO.BCM)
         
-        for i in range(8):
-            GPIO.setup(PIN_INDEX(i, GPIO.IN)
-            GPIO.setup(OUT_PIN_INDEX(i, GPIO.OUT)
-        """
-        for i in range(8):
+        # 테스트를 위해 1로 조정
+        for i in range(1):
+            GPIO.setup(PIN_INDEX[i], GPIO.IN)
+            GPIO.setup(OUT_PIN_INDEX[i], GPIO.OUT)
+        
+        # 테스트를 위해 1로 조정
+        for i in range(1):
             self.sensors.append(SwitchSensor(i, PIN_INDEX[i]))
 
     def play(self):
@@ -46,8 +48,8 @@ class SystemController(Controller):
 
             print("Program running...")
 
-            for sensor in self.sensors:
-                print(sensor)
-            print("======================")
+            # for sensor in self.sensors:
+            #     print(sensor)
+            # print("======================")
 
-            time.sleep(10)
+            time.sleep(0.5)

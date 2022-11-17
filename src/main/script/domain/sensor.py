@@ -1,4 +1,5 @@
 from abc import *
+import RPi.GPIO as GPIO
 
 class Sensor(metaclass=ABCMeta):
     
@@ -20,5 +21,5 @@ class Sensor(metaclass=ABCMeta):
 
     @abstractmethod
     def getValueFromDevice(self):
-        # GPIO.input(self.pinnum)
+        GPIO.input(self.pinnum)
         return self.value

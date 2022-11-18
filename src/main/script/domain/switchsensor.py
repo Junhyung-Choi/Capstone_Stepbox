@@ -16,7 +16,7 @@ class SwitchSensor(sensor.Sensor):
 
     def getValueFromDevice(self):
         self.value = GPIO.input(self.pinnum)
-        print("Value: " + str(self.value) + " Pin number: " + str(self.pinnum))
+        # print("Value: " + str(self.value) + " Pin number: " + str(self.pinnum))
         return self.value
 
 

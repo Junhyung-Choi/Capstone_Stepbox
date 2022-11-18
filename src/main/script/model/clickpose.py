@@ -13,4 +13,8 @@ class ClickPose(pose.Pose):
 
     def evalPoseMsg(self, sensors: List[Sensor]) -> pose.PoseResult:
         print("Click Pose evalutate Pose / return float with messages")
-        pass
+        for index in self.sensor_list:
+            value = sensors[index].getValueFromDevice()
+            print("Click Pose Sensor Index: " + str(index) + " / Sensor Value: " + str(value))
+        return pose.PoseResult("tmp",1)
+        

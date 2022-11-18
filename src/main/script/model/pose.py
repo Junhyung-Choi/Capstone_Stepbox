@@ -18,7 +18,10 @@ class Pose(metaclass=ABCMeta):
     set:int = 0
     time:int = 0
     
-    sensor_list = []
+    sensors= []
+
+    def __init__(self, sensors:List[Sensor]) -> None:
+        self.sensors = sensors
 
     @abstractmethod
     def evalPosef(self,sensors:List[Sensor]) -> float:

@@ -6,6 +6,8 @@ class Sensor(metaclass=ABCMeta):
     def __init__(self, index, pinnum):
         self.index = index
         self.pinnum = pinnum
+        self.posX = 0
+        self.posY = 0
 
     def __str__(self):
         return "Sensor " + str(self.index) + " / Pin number :" + str(self.pinnum)

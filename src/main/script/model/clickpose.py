@@ -18,3 +18,9 @@ class ClickPose(pose.Pose):
             print("Click Pose Sensor Index: " + str(index) + " / Sensor Value: " + str(value))
         return pose.PoseResult("tmp",1)
         
+    def evalPoseTensor(self, tensor):
+        self.doSomeThingWithModel(tensor)
+        return pose.PoseResult("tmp",1)
+    
+    def doSomeThingWithModel(self, tensor):
+        pass

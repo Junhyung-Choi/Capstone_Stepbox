@@ -43,5 +43,8 @@ class Pose(metaclass=ABCMeta):
         """
         return PoseResult("tmp",0.0)
 
+    @abstractmethod
+    def evalPoseTensor(self, tensor) -> PoseResult:
+        return PoseResult("tmp", 0.0)
 
 

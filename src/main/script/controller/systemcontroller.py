@@ -26,6 +26,7 @@ class SystemController(Controller):
     """
     sensors: List[Sensor] = []
     pose_controller: PoseController = None
+    t:float
 
     def init(self):
         print("Init Program (기존 운동 데이터 확인 / 운동 모드 선택 등등..)")
@@ -37,6 +38,8 @@ class SystemController(Controller):
             GPIO.setup(PIN_INDEX[i], GPIO.IN)
             GPIO.setup(OUT_PIN_INDEX[i], GPIO.OUT)
         
+        t = time.process_time_ns()
+
         # 테스트를 위해 1로 조정
         for i in range(1):
             self.sensors.append(SwitchSensor(i, PIN_INDEX[i]))
